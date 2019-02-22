@@ -16,8 +16,12 @@ func main() {
 	flag.StringVar(&command, "command", "", "\ngenweap: generate stats csv from Vanilla-Friendly Weapon Pack by SY4\ndefault: check mods for problems")
 	flag.Parse()
 
-	checkFoldersWithoutAboutXML()
-	checkAboutXMLDeprecatedVersion()
+	if command == "future_command" {
+
+	} else {
+		checkFoldersWithoutAboutXML()
+		checkAboutXMLDeprecatedVersion()
+	}
 }
 
 func checkFoldersWithoutAboutXML() {
