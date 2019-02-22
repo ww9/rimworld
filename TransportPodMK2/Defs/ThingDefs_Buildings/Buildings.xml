@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--========================= Launcher =========================-->
+	<ThingDef Name="PodLauncherMK2_Base" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building</thingClass>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<statBases>
+			<SellPriceFactor>0.70</SellPriceFactor>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="PodLauncherMK2_Base">
+		<defName>PodLauncherMKTwo</defName>
+		<label>Pod Launcher MK2</label>
+		<description>Advanced pod launcher with enough fuel capacity to reach the entire planet.</description>
+		<graphicData>
+			<texPath>LauncherMK2</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<rotatable>true</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1.0</fillPercent>
+		<designationCategory>Misc</designationCategory>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<hasFuelingPort>true</hasFuelingPort>
+		</building>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelCapacity>1600.0</fuelCapacity>
+				<!-- <fuelConsumptionRate>0.5</fuelConsumptionRate> -->
+				<targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+				<initialConfigurableTargetFuelLevel>0</initialConfigurableTargetFuelLevel>
+				<fuelFilter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</fuelFilter>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<autoRefuelPercent>1</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+				<drawFuelGaugeInMap>false</drawFuelGaugeInMap>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_FuelingPort</li>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<researchPrerequisites>
+			<li>TransportPodMK2Research</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<uiIconScale>0.9</uiIconScale>
+	</ThingDef>
+
+	<!--========================= Pod =========================-->
+	<!-- <DesignatorDropdownGroupDef>
+		<defName>AdvTransportPods</defName>
+	</DesignatorDropdownGroupDef> -->
+	<ThingDef Name="TrasportPodMK2_Base" ParentName="BuildingBase" Abstract="True">
+		<description>A heavy duty launchable sub-orbital cargo pod. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.7</fillPercent>
+		<designationCategory>Misc</designationCategory>
+		<!-- <designatorDropdown>AdvTransportPods</designatorDropdown> -->
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<inspectorTabs>
+			<li>ITab_TransporterContents</li>
+		</inspectorTabs>
+		<placeWorkers>
+			<li>PlaceWorker_NeedsFuelingPort</li>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+	</ThingDef>
+
+	<ThingDef Name="TransportPodMK2" ParentName="TrasportPodMK2_Base">
+		<defName>TransportPodMKTwo</defName>
+		<label>Transport Pod MK2</label>
+		<graphicData>
+			<texPath>PodMK2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<costList>
+			<Steel>300</Steel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Transporter">
+				<restEffectiveness>0.8</restEffectiveness>
+				<massCapacity>5000</massCapacity>
+			</li>
+			<li Class="CompProperties_Launchable" />
+		</comps>
+		<researchPrerequisites>
+			<li>TransportPodMK2Research</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<uiIconScale>0.9</uiIconScale>
+	</ThingDef>
+</Defs>

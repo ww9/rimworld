@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Transport Pod MK2</name>
+	<author>ww9</author>
+  	<supportedVersions><li>1.0</li></supportedVersions>
+	<description>
+# Transport Pod MK2
+Adds a new transport pod that can carry 5000kg (vanilla is 150kg)
+Adds a new Pod Launcher that can hold 1600 fuel (vanilla is 150)
+Reaches anywhere on the planet
+Pod launcher is compact: 1x1 compared to vanilla 2x1
+Adds new research required: Transport Pod Additions
+
+# Todo
+Reusable pods
+All-in-one pods (no launcher required)
+Buildable floor area to determine where pods land in base. https://i.imgur.com/dVWtaf6.jpg
+</description>
+</ModMetaData>
